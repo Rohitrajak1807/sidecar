@@ -44,7 +44,8 @@ def sanitize(buffer):
     return sanitized
 
 
-def unclean_exit(file, client):
+def unclean_exit(log_stream, file, client):
+    log_stream.close()
     file.close()
     client.close()
     exit(2)
@@ -68,9 +69,7 @@ def main():
             sanitized = sanitize(buffer)
             file_handle.write(sanitized)
         except Exception:
-            log_stream.close()
-            file_handle.close()
-            client.close()
+            unclean_exit(log_stream, file_handle, client)
 
 
 if __name__ == '__main__':
