@@ -1,0 +1,7 @@
+version: "3"
+services:
+  logger:
+    image: python
+    extra_hosts:
+      host.docker.internal: host-gateway
+    command: bash -c "exec ssh-copy-id -i ${HOME}/.ssh/id_rsa.pub ${LOG_USER}@host.docker.internal"
