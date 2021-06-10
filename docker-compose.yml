@@ -1,7 +1,20 @@
-version: "3"
+version: "3.7"
+
 services:
-  logger:
-    image: python
-    extra_hosts:
-      host.docker.internal: host-gateway
-    command: bash -c "exec ssh-copy-id -i ${HOME}/.ssh/id_rsa.pub ${LOG_USER}@host.docker.internal"
+  sidecar:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
+    environment:
+      HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
+    secrets:
+      - user_name
+      - pass
+
+secrets:
+  user_name:
+    file: ./.user_name
+  pass:
+    file: ./.pass
