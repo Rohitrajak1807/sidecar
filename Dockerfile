@@ -10,4 +10,4 @@ RUN apt update && apt install sshpass -y
 RUN bash -c "ssh-keygen -t rsa -N '' -f /root/.ssh/.id_rsa"
 RUN --mount=type=secret,id=user_name,dst=/. cat /.user_name
 RUN --mount=type=secret,id=pass,dst=/. cat /.pass
-RUN sshpass -f /run/secrets/pass ssh-copy-id -i /root/.ssh/.id_rsa.pub $(cat /run/secrets/user)@${HOST_IP}
+RUN sshpass -f /.pass ssh-copy-id -i /root/.ssh/.id_rsa.pub $(cat /.user)@${HOST_IP}

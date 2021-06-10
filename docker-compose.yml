@@ -1,4 +1,11 @@
-version: "3.7"
+version: "3"
+
+
+secrets:
+  user_name:
+    file: ./.user_name
+  pass:
+    file: ./.pass
 
 services:
   sidecar:
@@ -12,9 +19,3 @@ services:
     secrets:
       - user_name
       - pass
-
-secrets:
-  user_name:
-    file: ./.user_name
-  pass:
-    file: ./.pass
