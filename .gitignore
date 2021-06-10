@@ -1,0 +1,5 @@
+config.json
+.idea
+__pychache__
+*.pyc
+venv
