@@ -6,6 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
-    environment:
-      HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
+        USER: archlinuxkvm
+        SSHPASS: 1234
+        HOST_IP: 172.17.0.1
+    volumes:
+    - log-data:/logs
+volumes:
+  log-data:

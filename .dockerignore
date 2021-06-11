@@ -1,0 +1,8 @@
+venv
+config-example.json
+.git
+.gitignore
+docker-compose*
+Dockerfile
+*.pyc
+__pycache__

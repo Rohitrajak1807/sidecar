@@ -6,7 +6,7 @@ from os import path, makedirs
 import docker
 
 BUFFER_LIM = 512
-LOG_DIR = path.join('/tmp', 'sidecar')
+LOG_DIR = path.join('/logs', 'sidecar')
 
 # referenced from
 # https://stackoverflow.com/questions/92438/stripping-non-printable-characters-from-a-string-in-python
