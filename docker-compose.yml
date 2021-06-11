@@ -1,12 +1,5 @@
 version: "3.9"
 
-
-secrets:
-  user_name:
-    file: ./user_name.txt
-  pass:
-    file: ./pass.txt
-
 services:
   sidecar:
     build:
@@ -16,6 +9,3 @@ services:
         HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
     environment:
       HOST_IP: ${DOCKER_GATEWAY_HOST:-host.docker.internal}
-    secrets:
-      - user_name
-      - pass
