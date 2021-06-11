@@ -1,11 +1,11 @@
-version: "3"
+version: "3.9"
 
 
 secrets:
   user_name:
-    file: ./.user_name
+    file: ./user_name.txt
   pass:
-    file: ./.pass
+    file: ./pass.txt
 
 services:
   sidecar:
